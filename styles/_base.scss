@@ -1,0 +1,44 @@
+body {
+    color: $color-base-black;
+    font-family: $typeface-main;
+    line-height: 1.4;
+}
+
+/* links */
+a {
+    color: $color-background-highlight;
+    text-decoration: none;
+    &:hover, &.selected {
+        text-decoration: underline;
+    }
+}
+
+/* typography */
+p, .p {
+    line-height: 1.5;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: $typeface-main;
+}
+
+h1, .h1 {
+    line-height: 1.25;
+    font-size: 32px;
+    font-weight: normal;
+    letter-spacing: -0.013em;
+    font-family: $typeface-main;
+    margin: 8px 0 12px;
+}
+
+h2, .h2 {
+    line-height: 1.25;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: -0.013em;
+    font-family: $typeface-highlight;
+}
+
+label {
+    display: inline-block;
+    font-size: 16px;
+}
