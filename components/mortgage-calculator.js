@@ -104,13 +104,13 @@ class MortgageCalculator {
     setupRangeSliders() {
         const rangeSliderYears = this.element.querySelector('[data-input="range-years"]');
         const rangeSliderYearsOutput = this.element.querySelector('[data-input="range-years-display"]');
-        rangeSliderYears.oninput = (e) => {
+        rangeSliderYears.oninput = () => {
             rangeSliderYearsOutput.textContent = rangeSliderYears.value;
         }
 
         const rangeSliderRate = this.element.querySelector('[data-input="range-rate"]');
         const rangeSliderRateOutput = this.element.querySelector('[data-input="range-rate-display"]');
-        rangeSliderRate.oninput = (e) => {
+        rangeSliderRate.oninput = () => {
             rangeSliderRateOutput.textContent = rangeSliderRate.value;
         }
     }
@@ -188,9 +188,11 @@ class MortgageCalculator {
     get componentName() {
         return this._componentName;
     }
+
     get instanceName() {
         return this._instanceName;
     }
+
     get defaultYears() {
         return this._defaultYears;
     }
@@ -202,11 +204,13 @@ class MortgageCalculator {
     set instanceName(name) {
         this._instanceName = name;
     }
+
     set years(value) {
         if(value > 0 && value < this.maxYears + 1) {
             this._years = value;
         }
     }
+
     set rate(value) {
         if(value > 0 && value < this.maxRate + 1) {
             this._rate = value;
