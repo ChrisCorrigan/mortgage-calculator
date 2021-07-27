@@ -18,6 +18,21 @@
     }
 }
 
+.panels {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-s) {
+        flex-direction: row;
+    }
+}
+
+.panel {
+    @media (min-width: $breakpoint-xs) {
+        width: 504px;
+    }
+}
+
 .sub-panel {
     background-color: $color-background-faded;
     margin: 0 8px;
@@ -25,6 +40,19 @@
     border-radius: 0px 0px 8px 8px;
 
     &__title {
-        margin: 0 0 15px;
+        margin: 0 0 45px;
+
+        @media (min-width: $breakpoint-s) {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (min-width: $breakpoint-xs) {
+        width: 460px;
+    }
+
+    @media (min-width: $breakpoint-s) {
+        width: 428px;
+        display: block !important;
     }
 }

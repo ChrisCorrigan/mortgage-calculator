@@ -16,7 +16,7 @@ class MortgageCalculator {
             <header class="component__header">
                 <h2 class="component__title">${props.title}</h2>
             </header>
-            <div class="component__inner">
+            <div class="component__inner panels">
                 <section class="component__panel panel">
                     <div class="panel__header">
                         <p class="panel__text">Change values to calculate your results</p>
@@ -77,25 +77,25 @@ class MortgageCalculator {
                         <button data-function="calculate" class="btn">Calculate</button>
                     </div>
                 </section>
-                <div class="sub-panel hidden">
+                <section class="sub-panel hidden">
                     <h3 class="sub-panel__title">Your results</h3>
                     <div class="result">
                         <p class="result__label">Principal & Interest</p>
-                        <p class="result__amount"><span class="result__denomination">$</span><span data-result="principal-interest"></span></p>
+                        <p class="result__amount"><span class="result__denomination">$</span><span class="result__placeholder"> - - </span><span data-result="principal-interest"></span></p>
                     </div>
                     <div class="result">
                         <p class="result__label">Tax</p>
-                        <p class="result__amount"><span class="result__denomination">$</span><span data-result="tax"></span></p>
+                        <p class="result__amount"><span class="result__denomination">$</span><span class="result__placeholder"> - - </span><span data-result="tax"></span></p>
                     </div>
                     <div class="result">
                         <p class="result__label">Insurance</p>
-                        <p class="result__amount"><span class="result__denomination">$</span><span data-result="insurance"></span></p>
+                        <p class="result__amount"><span class="result__denomination">$</span><span class="result__placeholder"> - - </span><span data-result="insurance"></span></p>
                     </div>
                     <div class="result">
                         <p class="result__label">Total Monthly Payment</p>
-                        <p class="result__amount"><span class="result__denomination">$</span><span data-result="payment"></span></p>
+                        <p class="result__amount"><span class="result__denomination">$</span><span class="result__placeholder"> - - </span><span data-result="payment"></span></p>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
                 `;
@@ -142,6 +142,7 @@ class MortgageCalculator {
 
         const resultPanel = this.element.querySelector('.sub-panel');
         resultPanel.classList.remove('hidden');
+        resultPanel.classList.add('show-results');
 
         const outputPrincipalElm = resultPanel.querySelector('[data-result="principal-interest"]');
         const outputTaxElm = resultPanel.querySelector('[data-result="tax"]');

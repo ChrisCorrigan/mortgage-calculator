@@ -15,15 +15,14 @@ $color-base-black-light: #2E2F2F;
 $color-error: #D83E00;
 
 /* shortcuts for breakpoints */
-$bp-xs: 560px;
-$bp-s: 768px;
-$bp-m: 1024px;
-$bp-l: 1240px;
+$breakpoint-xxs: 420px;
+$breakpoint-xs: 560px;
+$breakpoint-s: 768px;
+$breakpoint-m: 1024px;
+$breakpoint-l: 1240px;
 
 /* fonts */
-
-
-$typeface-main:  'Graphik', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$typeface-main: 'Graphik', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 $typeface-secondary: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 $typeface-highlight: 'Publico Banner', 'Times New Roman', Times, serif;
 
