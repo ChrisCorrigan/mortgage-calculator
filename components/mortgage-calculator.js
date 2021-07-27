@@ -10,7 +10,7 @@ class MortgageCalculator {
         this.element = document.querySelector(`[data-instance-name="${this.instanceName}"]`);
     }
 
-    setupTemplate(props) {console.log(props);
+    setupTemplate(props) {
         return `
         <div class="component">
             <header class="component__header">
