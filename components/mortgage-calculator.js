@@ -28,7 +28,7 @@ class MortgageCalculator {
                                 <span class="range__min">1</span>
                                 <input data-input="range-years" class="range__slider" type="range" min="1" max="40" step="1" value="${this.years}">
                                 <span class="range__max">${this.maxYears}</span>
-                                <div class="range__input">
+                                <div class="range__input-display">
                                     <span data-input="range-years-display" class="range__value">${this.years}</span>
                                 </div>
                             </div>
@@ -39,7 +39,7 @@ class MortgageCalculator {
                                 <span class="range__min">0.1</span>
                                 <input data-input="range-rate" class="range__slider" type="range" min="0.1" max="10" step="0.1" value="${this.rate}">
                                 <span class="range__max">${this.maxRate}</span>
-                                <div class="range__input">
+                                <div class="range__input-display">
                                     <span data-input="range-rate-display" class="range__value">${this.rate}</span>
                                 </div>
                             </div>
@@ -48,7 +48,8 @@ class MortgageCalculator {
                             <label class="panel__label_large">Loan Amount</label>
                             <div class="panel__input-wrap">
                                 <span class="panel__input-denomination">$</span>
-                                <input data-input="loan-amount" class="panel__input" value="${props.defaultLoan}">
+                                <input data-input="loan-amount" class="panel__input" value="${props.defaultLoan}" required>
+                                <span class="validation hidden">Mandatory field</span>
                             </div>
                         </div>
                         <div class="layout__2col">
@@ -57,7 +58,8 @@ class MortgageCalculator {
                                     <label class="panel__label_large">Annual Tax</label>
                                     <div class="panel__input-wrap">
                                         <span class="panel__input-denomination">$</span>
-                                        <input data-input="annual-tax" class="panel__input" value="${props.defaultTax}">
+                                        <input data-input="annual-tax" class="panel__input" value="${props.defaultTax}" required>
+                                        <span class="validation hidden">Mandatory field</span>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +68,8 @@ class MortgageCalculator {
                                     <label class="panel__label_large">Annual Insurance</label>
                                     <div class="panel__input-wrap">
                                         <span class="panel__input-denomination">$</span>
-                                        <input data-input="annual-insurance" class="panel__input" value="${props.defaultInsurance}">
+                                        <input data-input="annual-insurance" class="panel__input" value="${props.defaultInsurance}" required>
+                                        <span class="validation hidden">Mandatory field</span>
                                     </div>
                                 </div>
                             </div>
@@ -112,8 +115,31 @@ class MortgageCalculator {
         }
     }
 
-    calculateFunction = (event) => {
-        console.log(event);
+    formFailsValidation() {
+        let failsValidation = false;
+
+        const checkFieldValidation = (field) => {
+            if (field.value === '') {
+                failsValidation = true;
+                field.nextElementSibling.classList.remove('hidden');
+            } else {
+                field.nextElementSibling.classList.add('hidden');
+            }
+        }
+
+        checkFieldValidation(this.element.querySelector('[data-input="loan-amount"]'));
+        checkFieldValidation(this.element.querySelector('[data-input="annual-tax"]'));
+        checkFieldValidation(this.element.querySelector('[data-input="annual-insurance"]'));
+
+        return failsValidation;
+    }
+
+    calculateFunction = () => {
+        // validate form. Browser validation for the inputs already works so we just have to add the message.
+        if (this.formFailsValidation()) {
+            return;
+        };
+
         const resultPanel = this.element.querySelector('.sub-panel');
         resultPanel.classList.remove('hidden');
 
@@ -128,7 +154,7 @@ class MortgageCalculator {
         const inputTaxElm = this.element.querySelector('[data-input="annual-tax"]');
         const inputInsuranceElm = this.element.querySelector('[data-input="annual-insurance"]');
 
-        const resultPrincipal = ((inputRateElm.value / 100) / 12) * inputLoanElm.value / (1 - Math.pow((1 + ((inputRateElm.value / 100)/12)), - inputYearsElm.value * 12))/12;
+        const resultPrincipal = ((inputRateElm.value / 100) / 12) * inputLoanElm.value / (1 - Math.pow((1 + ((inputRateElm.value / 100)/12)), - inputYearsElm.value * 12)) / 12;
         outputPrincipalElm.textContent = resultPrincipal.toFixed(2);
 
         const resultTax = inputTaxElm.value / 12;

@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-.pulldown {
-
-}
-
 .layout {
     &__2col {
         display: flex;
@@ -19,5 +15,16 @@
 
     &__col:last-child {
         margin-left: 7px;
+    }
+}
+
+.sub-panel {
+    background-color: $color-background-faded;
+    margin: 0 8px;
+    padding: 24px 14px;
+    border-radius: 0px 0px 8px 8px;
+
+    &__title {
+        margin: 0 0 15px;
     }
 }
