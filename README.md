@@ -16,6 +16,8 @@ Notes:
 
 * The javascript is written OOP style for components - for example the calculator could be instantiated multiple times on a page/site with different configurations. See the index.html for how to inject the component and pass in the default values, etc.
 
+* one more note I forgot to add originally: the given formula for the 'loan amount' field appears to be wrong, looks like it needed a /12 to make it monthly. It still gave a different result than the example, but the example I assume is not accurate. So that would need to be followed up on to make sure the formula is correct. 
+
 
 thanks,
 Chris Corrigan
