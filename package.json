@@ -27,7 +27,6 @@
     "last 1 chrome versions"
   ],
   "dependencies": {
-    "components": "^0.1.0",
     "normalize.css": "^8.0.1"
   }
 }
