@@ -26,7 +26,7 @@ class MortgageCalculator {
                             <label class="panel__label">Years of mortgage</label>
                             <div class="range">
                                 <span class="range__min">1</span>
-                                <input data-input="range-years" class="range__slider" type="range" min="1" max="40" step="1" value="${this.years}">
+                                <input data-input="range-years" class="range__slider" type="range" min="1" max="${this.maxYears}" step="1" value="${this.years}">
                                 <span class="range__max">${this.maxYears}</span>
                                 <div class="range__input-display">
                                     <span data-input="range-years-display" class="range__value">${this.years}</span>
@@ -37,7 +37,7 @@ class MortgageCalculator {
                             <label class="panel__label">Rate of interest (%)</label>
                             <div class="range">
                                 <span class="range__min">0.1</span>
-                                <input data-input="range-rate" class="range__slider" type="range" min="0.1" max="10" step="0.1" value="${this.rate}">
+                                <input data-input="range-rate" class="range__slider" type="range" min="0.1" max="${this.maxRate}" step="0.1" value="${this.rate}">
                                 <span class="range__max">${this.maxRate}</span>
                                 <div class="range__input-display">
                                     <span data-input="range-rate-display" class="range__value">${this.rate}</span>
